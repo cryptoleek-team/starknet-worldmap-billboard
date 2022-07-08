@@ -1,0 +1,199 @@
+[
+    {
+        "inputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            },
+            {
+                "name": "workshop",
+                "type": "felt"
+            },
+            {
+                "name": "exercise",
+                "type": "felt"
+            }
+        ],
+        "name": "has_validated_exercice",
+        "outputs": [
+            {
+                "name": "has_validated_exercice",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            }
+        ],
+        "name": "is_exercise_or_admin",
+        "outputs": [
+            {
+                "name": "permission",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "next_player_rank",
+        "outputs": [
+            {
+                "name": "next_player_rank",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "rank",
+                "type": "felt"
+            }
+        ],
+        "name": "players_registry",
+        "outputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            }
+        ],
+        "name": "player_ranks",
+        "outputs": [
+            {
+                "name": "rank",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "data": [
+            {
+                "name": "account",
+                "type": "felt"
+            },
+            {
+                "name": "permission",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "modificate_exercise_or_admin",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "account",
+                "type": "felt"
+            },
+            {
+                "name": "rank",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "new_player",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "account",
+                "type": "felt"
+            },
+            {
+                "name": "workshop",
+                "type": "felt"
+            },
+            {
+                "name": "exercise",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "new_validation",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "name": "first_admin",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            },
+            {
+                "name": "permission",
+                "type": "felt"
+            }
+        ],
+        "name": "set_exercise_or_admin",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "accounts_len",
+                "type": "felt"
+            },
+            {
+                "name": "accounts",
+                "type": "felt*"
+            }
+        ],
+        "name": "set_exercises_or_admins",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "account",
+                "type": "felt"
+            },
+            {
+                "name": "workshop",
+                "type": "felt"
+            },
+            {
+                "name": "exercise",
+                "type": "felt"
+            }
+        ],
+        "name": "validate_exercice",
+        "outputs": [],
+        "type": "function"
+    }
+]
