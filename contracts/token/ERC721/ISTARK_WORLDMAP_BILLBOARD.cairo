@@ -14,6 +14,6 @@ end
 
 @contract_interface
 namespace ISTARK_WORLDMAP_BILLBOARD:
-    func get_bill_board_tuple(id: felt) -> (_city: felt, _ipfsHash1: felt, _ipfsHash2: felt, _twitter: felt, _bid_level: felt, _owner: felt):
+    func get_bill_board_tuple(id: felt) -> (_city: felt, _ipfsHash1: felt, _ipfsHash2: felt, _twitter: felt, _bid_level: felt, _bid_price: felt, _owner: felt):
     end
 end

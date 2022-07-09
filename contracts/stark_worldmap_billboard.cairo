@@ -60,6 +60,7 @@ struct BillBoard:
     member ipfsHash2 : felt
     member twitter : felt
     member bidLevel : felt
+    member bidPrice : felt
     member owner : felt
 end
 
@@ -84,7 +85,7 @@ func split_ratio_storage() -> (split_ratio: felt):
 end
 
 @storage_var
-func bill_boards_storage(board_id : felt) -> (bill_board : (felt, felt, felt, felt, felt, felt)):
+func bill_boards_storage(board_id : felt) -> (bill_board : (felt, felt, felt, felt, felt, felt, felt)):
 end
 
 #
@@ -144,7 +145,8 @@ func get_bill_board{
     let _ipfsHash2 = bill_board_data[2]
     let _twitter = bill_board_data[3]
     let _bid_level = bill_board_data[4]
-    let _prev_owner = bill_board_data[5]
+    let _bid_price = bill_board_data[5]
+    let _prev_owner = bill_board_data[6]
 
     let billboard = BillBoard(
         city = _city,
@@ -152,6 +154,7 @@ func get_bill_board{
         ipfsHash2 = _ipfsHash2,
         twitter = _twitter,
         bidLevel = _bid_level,
+        bidPrice = _bid_price,
         owner = _prev_owner
     )
     return (billboard)
@@ -162,7 +165,7 @@ func get_bill_board_tuple{
         syscall_ptr: felt*,
         pedersen_ptr: HashBuiltin*,
         range_check_ptr
-    }(id: felt) -> (_city: felt, _ipfsHash1: felt, _ipfsHash2: felt, _twitter: felt, _bid_level: felt, _owner: felt):
+    }(id: felt) -> (_city: felt, _ipfsHash1: felt, _ipfsHash2: felt, _twitter: felt, _bid_level: felt, _bid_price: felt, _owner: felt):
 
     let (bill_board_data) = bill_boards_storage.read(id)
     let _city = bill_board_data[0]
@@ -170,9 +173,10 @@ func get_bill_board_tuple{
     let _ipfsHash2 = bill_board_data[2]
     let _twitter = bill_board_data[3]
     let _bid_level = bill_board_data[4]
-    let _prev_owner = bill_board_data[5]
+    let _bid_price = bill_board_data[5]
+    let _prev_owner = bill_board_data[6]
 
-    return (_city, _ipfsHash1, _ipfsHash2, _twitter, _bid_level, _prev_owner)
+    return (_city, _ipfsHash1, _ipfsHash2, _twitter, _bid_level, _bid_price, _prev_owner)
 end
 
 #
@@ -230,15 +234,18 @@ func setup{
     Ownable_only_owner()
 
     let (id) = next_board_id_storage.read()
+    let (base_price) = base_price_storage.read()
     let (contract_address) = get_contract_address()
+    let (owner) = Ownable_get_owner()
 
     let _ipfsHash1 = 0
     let _ipfsHash2 = 0
     let _twitter = 0
     let _bid_level = 1
-    let _owner = contract_address
+    let _bid_price = base_price
+    let _owner = owner
 
-    bill_boards_storage.write(id, (_city, _ipfsHash1, _ipfsHash2, _twitter, _bid_level, _owner))
+    bill_boards_storage.write(id, (_city, _ipfsHash1, _ipfsHash2, _twitter, _bid_level, _bid_price, _owner))
 
     let next_id = id + 1
     next_board_id_storage.write(next_id)
@@ -260,7 +267,8 @@ func bid{
     assert_lt(0, id)
     assert_le(id, current_board_id)
 
-    let (city, ipfsHash1, ipfsHash2, twitter, bid_level, owner) = get_bill_board_tuple(id)
+    let (city, ipfsHash1, ipfsHash2, twitter, bid_level, bid_price, billboard_owner) = get_bill_board_tuple(id)
+    let (contract_owner) = Ownable_get_owner()
 
     assert city = _city
 
@@ -276,19 +284,21 @@ func bid{
     )
 
     let next_bid_level = bid_level + 1
+    let next_bid_price = bid_price * 2
 
-    let (required_fund_uint256, no_no) = uint256_mul(Uint256(base_price, 0), Uint256(bid_level, 0))
+    let required_fund_uint256: Uint256 = Uint256(bid_price, 0)
 
     let (is_required_fund_valid) = uint256_le(required_fund_uint256, world_token_balance)
     assert is_required_fund_valid = 1
 
     let (amount_to_prev_owner_uint256, remainder) = uint256_signed_div_rem(required_fund_uint256, Uint256(split_ratio, 0))
-    IERC20.transferFrom(contract_address=world_token_addr, sender=sender_address, recipient=owner, amount=amount_to_prev_owner_uint256)
+    IERC20.transferFrom(contract_address=world_token_addr, sender=sender_address, recipient=billboard_owner, amount=amount_to_prev_owner_uint256)
 
     let (remaining_amount_uint256) = uint256_sub(required_fund_uint256, amount_to_prev_owner_uint256)
-    IERC20.transferFrom(contract_address=world_token_addr, sender=sender_address, recipient=contract_address, amount=remaining_amount_uint256)
+    IERC20.transferFrom(contract_address=world_token_addr, sender=sender_address, recipient=contract_owner, amount=remaining_amount_uint256)
 
-    bill_boards_storage.write(id, (_city, _ipfsHash1, _ipfsHash2, _twitter, next_bid_level, sender_address))
+
+    bill_boards_storage.write(id, (_city, _ipfsHash1, _ipfsHash2, _twitter, next_bid_level, next_bid_price, sender_address))
 
     let billboard = BillBoard(
         city = _city,
@@ -296,6 +306,7 @@ func bid{
         ipfsHash2 = _ipfsHash2,
         twitter = _twitter,
         bidLevel = next_bid_level,
+        bidPrice = next_bid_price,
         owner = sender_address
     )
     return (billboard)

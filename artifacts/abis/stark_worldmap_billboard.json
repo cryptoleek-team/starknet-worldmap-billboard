@@ -27,13 +27,18 @@
                 "type": "felt"
             },
             {
-                "name": "owner",
+                "name": "bidPrice",
                 "offset": 5,
+                "type": "felt"
+            },
+            {
+                "name": "owner",
+                "offset": 6,
                 "type": "felt"
             }
         ],
         "name": "BillBoard",
-        "size": 6,
+        "size": 7,
         "type": "struct"
     },
     {
@@ -151,6 +156,10 @@
             },
             {
                 "name": "_bid_level",
+                "type": "felt"
+            },
+            {
+                "name": "_bid_price",
                 "type": "felt"
             },
             {

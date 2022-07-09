@@ -54,25 +54,19 @@ func constructor{
         syscall_ptr : felt*,
         pedersen_ptr : HashBuiltin*,
         range_check_ptr
-    }(name: felt, symbol: felt, owner, bill_board_addr: felt, ipfs_base_uri: felt):
+    }(name: felt, symbol: felt, owner: felt, bill_board_addr: felt):
     ERC721_initializer(name, symbol)
     ERC721_Metadata_initializer()
     Ownable_initializer(owner)
     let one_as_uint = Uint256(1,0)
     next_token_id_storage.write(one_as_uint)
     bill_board_addr_storage.write(bill_board_addr)
-    ipfs_base_uri_storage.write(ipfs_base_uri)
     return ()
 end
 
 #
 # Storage vars
 #
-
-@storage_var
-func ipfs_base_uri_storage() -> (ipfs_base_uri: felt):
-end
-
 @storage_var
 func next_token_id_storage() -> (next_token_id: Uint256):
 end
@@ -84,16 +78,6 @@ end
 #
 # Getters
 #
-
-@view
-func ipfs_base_uri{
-        syscall_ptr : felt*,
-        pedersen_ptr : HashBuiltin*,
-        range_check_ptr
-    }() -> (ipfs_base_uri: felt):
-    let (ipfs_base_uri) = ipfs_base_uri_storage.read()
-    return (ipfs_base_uri)
-end
 
 @view
 func bill_board_addr{
@@ -210,16 +194,6 @@ end
 #
 # Setters
 #
-@external
-func set_ipfs_base_uri{
-        pedersen_ptr: HashBuiltin*,
-        syscall_ptr: felt*,
-        range_check_ptr
-    }(ipfs_base_uri: felt):
-    Ownable_only_owner()
-    ipfs_base_uri_storage.write(ipfs_base_uri)
-    return ()
-end
 
 @external
 func set_bill_board_addr{
@@ -296,13 +270,13 @@ func mint{
         pedersen_ptr: HashBuiltin*,
         syscall_ptr: felt*,
         range_check_ptr
-    }(board_id: felt):
+    }(board_id: felt, tokenURIs_len: felt, tokenURIs: felt*):
     alloc_locals
 
     let (sender_address) = get_caller_address()
     let (bill_board_addr) = bill_board_addr_storage.read()
 
-    let (city, ipfsHash1, ipfsHash2, twitter, bid_level, owner) = ISTARK_WORLDMAP_BILLBOARD.get_bill_board_tuple(contract_address=bill_board_addr, id=board_id)
+    let (city, ipfsHash1, ipfsHash2, twitter, bid_level, bid_price, owner) = ISTARK_WORLDMAP_BILLBOARD.get_bill_board_tuple(contract_address=bill_board_addr, id=board_id)
 
     assert owner = sender_address
 
@@ -311,13 +285,7 @@ func mint{
     let (next_token_id, _) = uint256_add(one_as_uint, token_id)
     next_token_id_storage.write(next_token_id)
 
-    let (local tokenURIs: felt*) = alloc()
-    let (base_uri) = ipfs_base_uri_storage.read()
-    tokenURIs[0] = base_uri
-    tokenURIs[1] = ipfsHash1
-    tokenURIs[2] = ipfsHash2
-
-    _setTokenURI(token_id, 3, tokenURIs)
+    _setTokenURI(token_id, tokenURIs_len, tokenURIs)
 
     ERC721_mint(sender_address, token_id)
     return ()

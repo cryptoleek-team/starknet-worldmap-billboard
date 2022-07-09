@@ -90,27 +90,11 @@
             {
                 "name": "bill_board_addr",
                 "type": "felt"
-            },
-            {
-                "name": "ipfs_base_uri",
-                "type": "felt"
             }
         ],
         "name": "constructor",
         "outputs": [],
         "type": "constructor"
-    },
-    {
-        "inputs": [],
-        "name": "ipfs_base_uri",
-        "outputs": [
-            {
-                "name": "ipfs_base_uri",
-                "type": "felt"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
     },
     {
         "inputs": [],
@@ -285,17 +269,6 @@
     {
         "inputs": [
             {
-                "name": "ipfs_base_uri",
-                "type": "felt"
-            }
-        ],
-        "name": "set_ipfs_base_uri",
-        "outputs": [],
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
                 "name": "bill_board_addr",
                 "type": "felt"
             }
@@ -385,6 +358,14 @@
             {
                 "name": "board_id",
                 "type": "felt"
+            },
+            {
+                "name": "tokenURIs_len",
+                "type": "felt"
+            },
+            {
+                "name": "tokenURIs",
+                "type": "felt*"
             }
         ],
         "name": "mint",
