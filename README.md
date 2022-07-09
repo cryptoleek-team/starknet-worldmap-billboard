@@ -29,7 +29,7 @@ Then you can view all your flashy NFTs in your wallet or ASPECT.
 | Stark Worldmap Billboard Collection | 0x014b0e1503737ba46233b696753acfd2b4c8787a2ac9fc8fc113603d09b48259 | Goerli |
 
 ### A state of current Worldmap Billboard
-![State of WorldMap Billboard](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)
+![State of WorldMap Billboard](https://user-images.githubusercontent.com/85657906/178107943-0a5b78f6-992b-4517-acb0-3b0f5496fa3a.png)
 
 ### Summary
 It's a super innovative way to have some play-to-earn features in StarkNet system. Hope everyone enjoyed it.
