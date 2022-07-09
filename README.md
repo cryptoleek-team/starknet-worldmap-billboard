@@ -21,7 +21,7 @@ Tech Stack in details:
 #### How to start?
 - Make sure you installed your Argent Wallet and connect to the game
 - You need to have some eth to be used as gas
-- You can get some free $WORLD token (facuet function, can you figure out?)
+- You can get some free $WORLD token (faucet function, can you figure out?)
 - Then go and bidding your favourite spot for awesome BillBoard Ads
 
 #### How to bid?
