@@ -17,11 +17,19 @@ It's totally censorship free and everything is on chain Layer2 Starknet to be mo
 The actual bidding price starting from 1 $WORLD, and every bid the price will go double. And effectively half of the $WORLD will go to previous bidder's pocket, so you dont lose any money to be fair as long as somebody outbid you, but you do lose the BillBoard owner rights and status quo in the game. Yes, Owner rights and status quo are more important right? 😄
 
 #### Generate your unique NFTs
-Remember at any point of time, you can be out bid by the next person and you lose your BillBoard Ads, but before that you can generate your unique NFT to remember your glorious moment. This unqie NFT will be stored in your wallet and be view on Aspect or anything StarkNet compatible NFT platforms. So damn cool!
-​
-### A state of current Worldmap Billboard
-TBD
+Remember at any point of time, you can be out bid by the next person and you lose your BillBoard Ads, but before that you can generate your unique NFT to remember your glorious moment. This unique NFT will be stored in your wallet and be view on Aspect or anything StarkNet compatible NFT platforms. So damn cool!
 
+Then you can view all your flashy NFTs in your wallet or ASPECT.
+
+### Smart Contract Details
+| Contract Name                       | Contract Address                                                   | Network|
+| ----------------------------------- |--------------------------------------------------------------------|--------|
+| World Token                         | 0x02cfb380ddbde85af1b96a4a0d446031d1ef0020d727f35f2e7db4d55069278a | Goerli |
+| Stark Worldmap Billboard            | 0x055027d94747faa8020b23fcbb3c3a3bf5819043b7688a479ad2fac4baeb4020 | Goerli |
+| Stark Worldmap Billboard Collection | 0x014b0e1503737ba46233b696753acfd2b4c8787a2ac9fc8fc113603d09b48259 | Goerli |
+
+### A state of current Worldmap Billboard
+![State of WorldMap Billboard](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)
 
 ### Summary
 It's a super innovative way to have some play-to-earn features in StarkNet system. Hope everyone enjoyed it.
