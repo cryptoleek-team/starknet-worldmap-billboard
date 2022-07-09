@@ -1,4 +1,4 @@
-# STARK World Map BillBoard on StarkNet
+# STARK World Map BillBoard on StarkNet Smart Contracts
 
 ## Introduction
 It's a game to occupy your favourite cities on earth and post some ads with it. It's built-in with dynamic token nomics and NFT minting mechanism to trade and compete with each players.
