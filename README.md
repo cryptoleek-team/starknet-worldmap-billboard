@@ -25,8 +25,8 @@ Then you can view all your flashy NFTs in your wallet or ASPECT.
 | Contract Name                       | Contract Address                                                   | Network|
 | ----------------------------------- |--------------------------------------------------------------------|--------|
 | World Token                         | 0x02cfb380ddbde85af1b96a4a0d446031d1ef0020d727f35f2e7db4d55069278a | [Goerli](https://goerli.voyager.online/contract/0x02cfb380ddbde85af1b96a4a0d446031d1ef0020d727f35f2e7db4d55069278a) |
-| Stark Worldmap Billboard            | 0x055027d94747faa8020b23fcbb3c3a3bf5819043b7688a479ad2fac4baeb4020 | Goerli |
-| Stark Worldmap Billboard Collection | 0x014b0e1503737ba46233b696753acfd2b4c8787a2ac9fc8fc113603d09b48259 | Goerli |
+| Stark Worldmap Billboard            | 0x055027d94747faa8020b23fcbb3c3a3bf5819043b7688a479ad2fac4baeb4020 |  [Goerli](https://goerli.voyager.online/contract/0x055027d94747faa8020b23fcbb3c3a3bf5819043b7688a479ad2fac4baeb4020) |
+| Stark Worldmap Billboard Collection | 0x014b0e1503737ba46233b696753acfd2b4c8787a2ac9fc8fc113603d09b48259 | [Goerli](https://goerli.voyager.online/contract/0x014b0e1503737ba46233b696753acfd2b4c8787a2ac9fc8fc113603d09b48259) |
 
 ### A state of current Worldmap Billboard
 ![State of WorldMap Billboard](https://user-images.githubusercontent.com/85657906/178107943-0a5b78f6-992b-4517-acb0-3b0f5496fa3a.png)
