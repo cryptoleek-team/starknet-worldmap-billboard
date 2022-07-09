@@ -6,6 +6,17 @@ It's a game to occupy your favourite cities on earth and post some ads with it. 
 ### Technology
 It's totally censorship free and everything is on chain Layer2 Starknet to be more specific. We use IPFS technology to host images and we use starknet to host all the smart contracts of the game.
 
+Tech Stack in details:
+- Cairo Lang
+- STARKNET
+- IPFS
+- NEXTJS
+- VERCEL
+- TYPESCRIPT
+- Starknet.js
+- MAPBOX
+- MUI
+
 ### Game Rules
 #### How to start?
 - Make sure you installed your Argent Wallet and connect to the game
