@@ -33,3 +33,5 @@ Then you can view all your flashy NFTs in your wallet or ASPECT.
 
 ### Summary
 It's a super innovative way to have some play-to-earn features in StarkNet system. Hope everyone enjoyed it.
+
+❤️ by CryptoLeek Team
