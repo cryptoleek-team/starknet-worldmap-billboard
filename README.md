@@ -1,7 +1,7 @@
 # STARK World Map BillBoard on StarkNet Smart Contracts
 
 ## Introduction
-It's a game to occupy your favourite cities on earth and post some ads with it. It's built-in with dynamic token nomics and NFT minting mechanism to trade and compete with each players.
+Starknet World Map Billboards is a game to occupy your favourite cities on earth and post some ads with it. It's built-in with dynamic token nomics and NFT minting mechanism to trade and compete with each players. And it utilized Layer2 technology to make it accessible to global crypto fans.
 
 ### Technology
 It's totally censorship free and everything is on chain Layer2 Starknet to be more specific. We use IPFS technology to host images and we use starknet to host all the smart contracts of the game.
